@@ -11,11 +11,10 @@ from flask_session import Session
 app = Flask(__name__)
 app.config.from_object(Config)
 # TODO: Add any logging levels and handlers with app.logger
-#SOURCE: Solution: Monitoring and Logging in Azure
-app.logger.setLevel(logging.INFO)
+app.logger.setLevel(logging.WARNING)
 streamHandler = logging.StreamHandler()
-streamHandler.setLevel(logging.INFO)
-app.logger.addHandler(streamHandler)
+streamHandler.setLevel(logging.WARNING)
+app.logger.addHandler(streamHandler) # add stream handler to app.logger object
 
 Session(app)
 db = SQLAlchemy(app)
